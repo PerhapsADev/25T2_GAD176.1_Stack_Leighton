@@ -9,42 +9,36 @@ namespace LeightonFPS
 public class Player : MonoBehaviour
 {
 
- InputAction attackAction;
+    InputAction attackAction;
+    InputAction reloadAction;
+
         public BaseHitScan HitScanWeapon;
         // int healthPlayer = 1;
 
         // Player Shoot Class
 
         public void Start()
+            // Input Sets
         {
             attackAction = InputSystem.actions.FindAction("AttackAuto");
+            reloadAction = InputSystem.actions.FindAction("Reload");
             
         }
 
         public void Update()
+        // Input Checks
         {
             if (attackAction.IsPressed())
             {
                 HitScanWeapon.Shoot();
             }
-              // PrimaryAction();
-        }
+
+            if (reloadAction.IsPressed())
+            {
+                HitScanWeapon.ReloadStart();
+            }
             
-    
-        /* public void PrimaryAction()
-    
-        {
-         Detects Mouse Input~
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-
-        {
-            HitScanWeapon.Shoot();
         }
-
-        }
-    */
-
-
 }
 
 }

@@ -610,17 +610,17 @@ PrefabInstance:
     - target: {fileID: 4695332272818525719, guid: 89e1d8a05655d0449bed4109366a25d3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.39
+      value: 0.629
       objectReference: {fileID: 0}
     - target: {fileID: 4695332272818525719, guid: 89e1d8a05655d0449bed4109366a25d3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.61
+      value: 0.746
       objectReference: {fileID: 0}
     - target: {fileID: 4695332272818525719, guid: 89e1d8a05655d0449bed4109366a25d3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.05
+      value: 0.886
       objectReference: {fileID: 0}
     - target: {fileID: 4695332272818525719, guid: 89e1d8a05655d0449bed4109366a25d3,
         type: 3}
@@ -655,6 +655,16 @@ PrefabInstance:
     - target: {fileID: 4695332272818525719, guid: 89e1d8a05655d0449bed4109366a25d3,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8053354284503288306, guid: 89e1d8a05655d0449bed4109366a25d3,
+        type: 3}
+      propertyPath: fireRate
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8053354284503288306, guid: 89e1d8a05655d0449bed4109366a25d3,
+        type: 3}
+      propertyPath: fireRateTimer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8262500402004796942, guid: 89e1d8a05655d0449bed4109366a25d3,
