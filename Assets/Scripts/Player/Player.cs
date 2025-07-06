@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
 
     InputAction attackAction;
     InputAction reloadAction;
+    //InputAction attackSingleAction;
 
         public BaseHitScan HitScanWeapon;
         // int healthPlayer = 1;
@@ -18,7 +19,7 @@ public class Player : MonoBehaviour
         // Player Shoot Class
 
         public void Start()
-            // Input Sets
+        // Input Sets
         {
             attackAction = InputSystem.actions.FindAction("AttackAuto");
             reloadAction = InputSystem.actions.FindAction("Reload");
@@ -30,14 +31,15 @@ public class Player : MonoBehaviour
         {
             if (attackAction.IsPressed())
             {
-                HitScanWeapon.Shoot();
-            }
+                HitScanWeapon.Shoot(attackAction.WasPressedThisFrame());
 
+            }
+    
             if (reloadAction.IsPressed())
             {
-                HitScanWeapon.ReloadStart();
+                 HitScanWeapon.ReloadStart();
             }
-            
+
         }
 }
 
