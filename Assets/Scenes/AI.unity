@@ -135,7 +135,7 @@ PrefabInstance:
     - target: {fileID: 2832040666893198338, guid: e87a4b70e40765b48ac00da10c8bc82b,
         type: 3}
       propertyPath: m_UseGravity
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3105785910962031380, guid: e87a4b70e40765b48ac00da10c8bc82b,
         type: 3}
@@ -157,6 +157,21 @@ PrefabInstance:
       propertyPath: chaseTarget
       value: 
       objectReference: {fileID: 596552176}
+    - target: {fileID: 3105785910962031380, guid: e87a4b70e40765b48ac00da10c8bc82b,
+        type: 3}
+      propertyPath: pathNodes.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3105785910962031380, guid: e87a4b70e40765b48ac00da10c8bc82b,
+        type: 3}
+      propertyPath: 'pathNodes.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1638757930}
+    - target: {fileID: 3105785910962031380, guid: e87a4b70e40765b48ac00da10c8bc82b,
+        type: 3}
+      propertyPath: 'pathNodes.Array.data[1]'
+      value: 
+      objectReference: {fileID: 100629295}
     - target: {fileID: 3105785910962031380, guid: e87a4b70e40765b48ac00da10c8bc82b,
         type: 3}
       propertyPath: movementSpeedInUnitsPerSecond

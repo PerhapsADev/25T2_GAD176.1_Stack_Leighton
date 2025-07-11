@@ -17,14 +17,14 @@ public class PhysicsMover : MonoBehaviour
     [SerializeField] private float movementSpeedInUnitsPerSecond = 19f;
     private GameObject chaseTarget;
     public GameObject Player;
-    public GameObject Target1;
-    public GameObject Target2;
+    [SerializeField] public GameObject[] pathNodes;
+    protected int pathIndex = 0;
     // [SerializeField] private GameObject player;
 
     private void Start()
     {
-        this.transform.position = new Vector3(-40, 0, 40);
-        chaseTarget = Target1;
+        this.transform.position = new Vector3(-40, 0.2f, 40);
+        chaseTarget = pathNodes[0];
     }
 
     private void FixedUpdate()
@@ -36,6 +36,8 @@ public class PhysicsMover : MonoBehaviour
                 Vector3 Direction = (chaseTarget.transform.position - gameObject.transform.position);
                 Direction.Normalize();
                 sphere.linearVelocity = Direction * movementSpeedInUnitsPerSecond;
+
+                // sphere.maxLinearVelocity.Equals(20);
             }
 
             Vector3 targetpos = new Vector3(chaseTarget.transform.position.x, 1, chaseTarget.transform.position.y);
@@ -44,7 +46,11 @@ public class PhysicsMover : MonoBehaviour
              && (this.transform.position.z >= targetpos.z - 1 || this.transform.position.z <= targetpos.z + 1))
             {
                 // Sets ChaseTarget FROM condition = results true : false, 
-                chaseTarget = chaseTarget == Target1 ? Target2 : Target1;
+                // >> chaseTarget = chaseTarget == Target1 ? Target2 : Target1;
+                pathIndex ++;
+                pathIndex %= pathNodes.Length;
+                chaseTarget = pathNodes[pathIndex];
+                print(chaseTarget);
 
             }
         }
