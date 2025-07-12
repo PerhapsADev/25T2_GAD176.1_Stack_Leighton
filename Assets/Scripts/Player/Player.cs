@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 namespace LeightonFPS
 
 {
+    
 public class Player : MonoBehaviour
 {
         public int playerHealth = 100;
