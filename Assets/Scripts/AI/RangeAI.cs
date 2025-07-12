@@ -1,8 +1,19 @@
 using UnityEngine;
 
 public class RangeAI : BaseAI
-{   
+{
     [SerializeField] protected float cruiseAltitude = 0f; //Changes Y axis of enemy.
+    [SerializeField] private SemiHitScan semiHitScan;
+    [SerializeField] private GameObject gunHinge;
+    protected float timerForGunFire = 2.5f;
+    protected bool timerStartForGunFire = false;
+    // private bool safteySwitch = false;
+
+    protected override void Start()
+    {
+        base.Start();
+        timerForGunFire = semiHitScan.fireRate;
+    }
     protected override void MoveTowardsObjective()
     {
         // Sets speed to average and structure to adjust speed.
@@ -19,6 +30,25 @@ public class RangeAI : BaseAI
         {
             enemyBody.AddForce((Direction) * movementSpeedInUnitsPerSecond);
         }
-        
+
     }
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
+
+        if (!patrolMode)
+        {
+            gunHinge.transform.LookAt(chaseTarget.transform, Vector3.up);
+
+            timerForGunFire -= Time.deltaTime;
+            timerStartForGunFire = true;
+
+            if (timerForGunFire <= 0.0f)
+            {
+                semiHitScan.Shoot(true);
+                timerForGunFire = semiHitScan.fireRate;
+            }
+        }
+    }
+    
 }

@@ -65,7 +65,7 @@ public class BaseAI : MonoBehaviour
     
     }
 
-    public void Aggroed()
+    virtual public void Aggroed()
     {
         chaseTarget = player.gameObject;
         patrolMode = false;

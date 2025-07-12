@@ -15,9 +15,9 @@ namespace LeightonFPS
     {
         [SerializeField] protected int maxAmmo = 30;
         [SerializeField] protected float reloadTime = 2f;
-        [SerializeField] protected float fireRate = 0.2f;
         [SerializeField] protected float accuracy = 100f;
-        [SerializeField] protected float damageValue = 1f;
+        [SerializeField] public float damageValue = 1f;
+         [SerializeField] public float fireRate = 0.2f;
 
         protected float reloadTimeLeft = 0f;
         protected float fireRateTimer = 1f;
@@ -68,7 +68,7 @@ namespace LeightonFPS
             {
                 return;
             }
-            // shoots line from gun to check if firing, delete when wrapping up
+
             RaycastHit hit;
 
             // Decides Random Spread of Gun
@@ -79,10 +79,11 @@ namespace LeightonFPS
 
             {
                 Debug.Log("Ray has been casted");
-                Debug.DrawRay(shooter.transform.position, forward * 300, Color.green, 10f);
+                Debug.DrawRay(shooter.transform.position, forward * 300, Color.green, 1f);
+               // if (hit.collider.gameObject)
             }
 
-    
+
 
             fireRateTimer = fireRate;
 
@@ -90,6 +91,8 @@ namespace LeightonFPS
 
             // Fires Gun~
             Debug.Log("Gun Attempts to fire.");
+            
+
 
         }
 
