@@ -8,7 +8,7 @@ namespace LeightonFPS
 {
 public class Player : MonoBehaviour
 {
-
+        public int playerHealth = 100;
     InputAction attackAction;
     InputAction reloadAction;
     //InputAction attackSingleAction;
