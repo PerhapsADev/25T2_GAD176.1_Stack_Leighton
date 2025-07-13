@@ -15,6 +15,7 @@ public class BaseAI : MonoBehaviour
     [SerializeField] protected float movementSpeedInUnitsPerSecond = 19f;
     [SerializeField] protected Rigidbody enemyBody;
     [SerializeField] protected int damageValue = 10;
+    [SerializeField] protected int healthValue = 10;
     virtual protected void Start()
     {
         chaseTarget = pathNodes[0];

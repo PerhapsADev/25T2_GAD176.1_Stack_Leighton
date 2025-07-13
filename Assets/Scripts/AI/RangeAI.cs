@@ -16,11 +16,12 @@ public class RangeAI : BaseAI
     }
     protected override void MoveTowardsObjective()
     {
-        // Sets speed to average and structure to adjust speed.
+        // Sets speed to average and structure to adjust speed. As well as keeps the Y axis of Ai in a set state (can't go up and down without permission)
         Vector3 DirectionToTarget = (chaseTarget.transform.position - gameObject.transform.position);
         Vector3 Direction = new Vector3(DirectionToTarget.x, cruiseAltitude, DirectionToTarget.z);
         Direction.Normalize();
 
+        // Debug.Log's below aren't enabled but can be if you need to see exactly where your eneimes / AI is.
 
         // Debug.Log(Direction + ": FaceDirection");
         // Debug.Log(gameObject.transform.position + ": EnemyPos");
