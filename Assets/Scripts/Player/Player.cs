@@ -12,11 +12,8 @@ namespace LeightonFPS
         public int playerHealth = 100;
         InputAction attackAction;
         InputAction reloadAction;
-        //InputAction attackSingleAction;
 
         public BaseHitScan HitScanWeapon;
-        // int healthPlayer = 1;
-
         // Player Shoot Class
 
         public void Start()

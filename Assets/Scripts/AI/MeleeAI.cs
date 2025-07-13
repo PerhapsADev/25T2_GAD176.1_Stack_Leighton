@@ -3,14 +3,13 @@ namespace LeightonFPS
 {
 
     public class MeleeAI : BaseAI
-
-    // https://discussions.unity.com/t/simple-timer/56201
     {
         private float movementTimeOutTimer = 2f;
         private bool timeOut = false;
 
         void OnCollisionEnter(Collision collision)
         {
+            // When Enemy collides with player to damage and start bounce timer.
             if (collision.gameObject == player.gameObject)
             {
                 Attack();
@@ -49,6 +48,7 @@ namespace LeightonFPS
 
         protected override void AiDeath()
         {
+            // What happens when Ai reaches 0 health.
             base.AiDeath();
             this.GetComponent<Collider>().enabled = false;
         }

@@ -7,9 +7,6 @@ using UnityEngine;
 using UnityEngine.Rendering;
 namespace LeightonFPS
 {
-    // https://docs.unity3d.com/ScriptReference/Physics.Raycast.html
-    // https://docs.unity3d.com/Packages/com.unity.inputsystem@1.14/manual/Workflow-Actions.html
-
     public class BaseHitScan : MonoBehaviour
 
     {

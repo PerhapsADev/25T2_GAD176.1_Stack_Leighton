@@ -41,6 +41,7 @@ namespace LeightonFPS
 
             if (!patrolMode)
             {
+                // Makes gun start firing once its detected a player
                 gunHinge.transform.LookAt(chaseTarget.transform, Vector3.up);
 
                 timerForGunFire -= Time.deltaTime;
