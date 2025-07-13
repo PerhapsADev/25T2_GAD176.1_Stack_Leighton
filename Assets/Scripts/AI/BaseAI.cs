@@ -46,8 +46,6 @@ public class BaseAI : MonoBehaviour
         {
             enemyBody.AddForce((Direction) * movementSpeedInUnitsPerSecond);
         }
-
-        // enemyBody.transform.LookAt(chaseTarget.transform, Vector3.up);
     }
 
     virtual protected void CheckPointChecker()
