@@ -1,5 +1,7 @@
 
+using System.Runtime.CompilerServices;
 using LeightonFPS;
+using NUnit.Framework;
 using UnityEngine;
 
 public class BaseAI : MonoBehaviour
@@ -39,7 +41,7 @@ public class BaseAI : MonoBehaviour
         // Debug.Log(Direction + ": FaceDirection");
         // Debug.Log(gameObject.transform.position + ": EnemyPos");
         // Debug.Log(Direction + gameObject.transform.position + ": New Position (Direction & position)");
-        
+
         if (enemyBody.linearVelocity.magnitude <= movementSpeedInUnitsPerSecond)
         {
             enemyBody.AddForce((Direction) * movementSpeedInUnitsPerSecond);
@@ -63,7 +65,7 @@ public class BaseAI : MonoBehaviour
             chaseTarget = pathNodes[pathIndex];
             print(chaseTarget);
         }
-    
+
     }
 
     virtual public void Aggroed()
@@ -74,7 +76,22 @@ public class BaseAI : MonoBehaviour
 
     virtual protected void Attack()
     {
-        player.playerHealth -= damageValue;
-        Debug.Log(player.playerHealth + ": Player's Health");
+        player.PlayerTakeDamage(damageValue);
+    }
+
+    virtual public void AiTakeDamage(int damage)
+    {
+        healthValue -= damage;
+        Debug.Log(healthValue + ": Enemy Health");
+        if (healthValue <= 0)
+        {
+            AiDeath();
+         }
+    }
+
+    virtual protected void AiDeath()
+    {
+         this.enabled = false;
     }
 }
+

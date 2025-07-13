@@ -6,13 +6,13 @@ using UnityEngine.InputSystem;
 namespace LeightonFPS
 
 {
-    
-public class Player : MonoBehaviour
-{
+
+    public class Player : MonoBehaviour
+    {
         public int playerHealth = 100;
-    InputAction attackAction;
-    InputAction reloadAction;
-    //InputAction attackSingleAction;
+        InputAction attackAction;
+        InputAction reloadAction;
+        //InputAction attackSingleAction;
 
         public BaseHitScan HitScanWeapon;
         // int healthPlayer = 1;
@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
         {
             attackAction = InputSystem.actions.FindAction("AttackAuto");
             reloadAction = InputSystem.actions.FindAction("Reload");
-            
+
         }
 
         public void Update()
@@ -35,12 +35,18 @@ public class Player : MonoBehaviour
                 HitScanWeapon.Shoot(attackAction.WasPressedThisFrame());
 
             }
-    
+
             if (reloadAction.IsPressed())
             {
-                 HitScanWeapon.ReloadStart();
+                HitScanWeapon.ReloadStart();
             }
 
+        }
+        
+        virtual public void PlayerTakeDamage(int damage)
+        {
+            playerHealth -= damage;
+            Debug.Log(playerHealth + ": Player's Health");
         }
 }
 

@@ -16,13 +16,14 @@ namespace LeightonFPS
         [SerializeField] protected int maxAmmo = 30;
         [SerializeField] protected float reloadTime = 2f;
         [SerializeField] protected float accuracy = 100f;
-        [SerializeField] public float damageValue = 1f;
-         [SerializeField] public float fireRate = 0.2f;
-
+        [SerializeField] public int damageValue = 1;
+        [SerializeField] public float fireRate = 0.2f;
+    
         protected float reloadTimeLeft = 0f;
         protected float fireRateTimer = 1f;
         protected int currentAmmo = 30;
         protected bool reloading = false;
+        
 
 
         GameObject shooter;
@@ -52,13 +53,12 @@ namespace LeightonFPS
 
             }
 
-            // 
             fireRateTimer -= Time.deltaTime;
         }
 
 
         public virtual void Shoot(bool holdTrigger)
-
+        
         // Checks for Enough Ammo~
         // Fires Gun~
         {
@@ -80,7 +80,18 @@ namespace LeightonFPS
             {
                 Debug.Log("Ray has been casted");
                 Debug.DrawRay(shooter.transform.position, forward * 300, Color.green, 1f);
-               // if (hit.collider.gameObject)
+
+                if (hit.collider.gameObject.GetComponent<Player>())
+                {
+                    Player player = hit.collider.gameObject.GetComponent<Player>();
+                    player.PlayerTakeDamage(damageValue);
+                }
+
+                if (hit.collider.gameObject.GetComponent<BaseAI>())
+                {
+                    BaseAI baseAi = hit.collider.gameObject.GetComponent<BaseAI>();
+                    baseAi.AiTakeDamage(damageValue);
+                }
             }
 
 
